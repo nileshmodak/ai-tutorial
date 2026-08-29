@@ -1,0 +1,14 @@
+Our company provides software development
+services.
+
+The engineering team uses TypeScript,
+React, Node.js and AWS.
+
+The technical lead is responsible for
+architecture, technical decisions,
+mentoring engineers and coordinating
+with stakeholders.
+
+Employees receive 25 days of annual leave.
+
+The engineering office is located in Pune.
