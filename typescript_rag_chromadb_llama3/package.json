@@ -1,0 +1,22 @@
+{
+  "name": "rag",
+  "version": "1.0.0",
+  "description": "",
+  "main": "embed.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^26.4.0",
+    "tsx": "^4.23.12",
+    "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "chromadb": "^3.5.0",
+    "dotenv": "^17.4.2",
+    "ollama": "^0.6.3",
+    "pdf-parse": "^2.4.5"
+  }
+}
