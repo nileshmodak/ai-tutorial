@@ -1,0 +1,26 @@
+rules:
+  - id: dotnet-webforms
+    when: "hasWebForms == true"
+    stack: dotnet-iis
+    complexity: specialist-review
+    recipe: dotnet-iis-to-openshift
+    requireHumanReview: true
+  - id: dotnet-iis
+    when: "csprojCount > 0 || solutionCount > 0 || hasWebConfig == true"
+    stack: dotnet-iis
+    recipe: dotnet-iis-to-openshift
+  - id: react-node
+    when: "hasReact == true && hasNodeServer == true"
+    stack: react-node
+    recipe: react-node-to-openshift
+  - id: react-static
+    when: "hasReact == true"
+    stack: react-static
+    recipe: react-nginx-to-openshift
+  - id: node-api
+    when: "hasPackageJson == true"
+    stack: node-api
+    recipe: node-api-to-openshift
+fallback:
+  stack: unknown
+  requireHumanReview: true

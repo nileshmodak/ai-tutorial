@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "repo": "sample-api",
+  "source": {
+    "framework": ".NET Framework 4.8",
+    "hosting": "IIS"
+  },
+  "target": {
+    "framework": "net10.0",
+    "hosting": "openshift",
+    "os": "linux"
+  },
+  "migration": {
+    "strategy": "incremental",
+    "approved": false
+  },
+  "decisions": {
+    "webForms": "not-applicable",
+    "wcf": "not-applicable",
+    "windowsAuthentication": "replace-with-approved-oidc",
+    "comOrNative": "none-found",
+    "database": "retain-sql-server-over-network"
+  },
+  "runtime": {
+    "port": 8080,
+    "healthPath": "/health",
+    "readinessPath": "/health/ready"
+  },
+  "qualityGates": {
+    "build": true,
+    "tests": true,
+    "securityScan": true,
+    "containerScan": true,
+    "manifestValidation": true,
+    "smokeTest": true
+  }
+}

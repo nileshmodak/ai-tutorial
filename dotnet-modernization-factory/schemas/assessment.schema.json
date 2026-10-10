@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "repo",
+    "observedFacts",
+    "risks",
+    "proposedRecipe",
+    "humanReviewRequired"
+  ],
+  "properties": {
+    "repo": {
+      "type": "string"
+    },
+    "observedFacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "claim",
+          "evidencePaths"
+        ],
+        "properties": {
+          "claim": {
+            "type": "string"
+          },
+          "evidencePaths": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "risks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "severity",
+          "description"
+        ],
+        "properties": {
+          "severity": {
+            "enum": [
+              "low",
+              "medium",
+              "high",
+              "blocker"
+            ]
+          },
+          "description": {
+            "type": "string"
+          },
+          "evidencePaths": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "proposedRecipe": {
+      "type": "string"
+    },
+    "humanReviewRequired": {
+      "type": "boolean"
+    }
+  }
+}

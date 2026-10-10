@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ${APP_NAME}
+spec:
+  replicas: ${REPLICAS}
+  selector:
+    matchLabels:
+      app: ${APP_NAME}
+  template:
+    metadata:
+      labels:
+        app: ${APP_NAME}
+    spec:
+      containers:
+        - name: ${APP_NAME}
+          image: ${IMAGE}
+          ports:
+            - name: http
+              containerPort: ${PORT}
+          envFrom:
+            - configMapRef:
+                name: ${APP_NAME}-config
+          readinessProbe:
+            httpGet:
+              path: ${READINESS_PATH}
+              port: http
+          livenessProbe:
+            httpGet:
+              path: ${LIVENESS_PATH}
+              port: http
+          resources:
+            requests:
+              cpu: ${CPU_REQUEST}
+              memory: ${MEMORY_REQUEST}
+            limits:
+              cpu: ${CPU_LIMIT}
+              memory: ${MEMORY_LIMIT}
